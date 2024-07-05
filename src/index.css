@@ -1,13 +1,56 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --color-dark-purple: #3C1B3C;
+  --color-misty-rose: #FFE2E0;
+  --color-pastel-red: #FF6D64;
+  --color-purple-pizzazz: #FF64E5;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Maison Neue', sans-serif;
+}
+
+body {
+  background: var(--color-misty-rose);
+}
+
+h1 {
+  font-size: 72px;
+  background: -webkit-linear-gradient(var(--color-pastel-red), var(--color-purple-pizzazz));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@font-face {
+  font-family: 'Maison Neue';
+  src: url(./assets/font/maison-neue/MaisonNeueWEB-Book.woff2) format('woff2'),
+  url(./assets/font/maison-neue/MaisonNeueWEB-Book.woff) format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Maison Neue';
+  src: url(./assets/font/maison-neue/MaisonNeueWEB-Medium.woff) format('woff2'),
+  url(./assets/font/maison-neue/MaisonNeueWEB-Medium.woff) format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Maison Neue';
+  src: url(./assets/font/maison-neue/MaisonNeueWEB-Demi.woff2) format('woff2'),
+  url(./assets/font/maison-neue/MaisonNeueWEB-Demi.woff) format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Maison Neue';
+  src: url(./assets/font/maison-neue/MaisonNeueWEB-Bold.woff2) format('woff2'),
+  url(./assets/font/maison-neue/MaisonNeueWEB-Bold.woff) format('woff');
+  font-weight: 700;
+  font-style: normal;
 }
