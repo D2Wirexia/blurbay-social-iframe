@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.react-dropdown-select {
+    border: 1px solid red;
+    border-radius: 99px;
+    padding: 0 20px;
+    outline: none;
+    box-shadow: none;
+    height: 100%;
+}
+
+.react-dropdown-select-content {
+    display: flex;
+    align-items: center;
+    color: red;
+}
+
+.react-dropdown-select-dropdown {
+    width: fit-content;
+    min-width: 140px;
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 7px;
+    box-shadow: none;
+    display: flex;
+    gap: 10px;
+}
+
+.react-dropdown-select-dropdown-handle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    position: relative;
+    width: 16px;
+    height: 16px;
+}
+
+.content {
+
+}
+
+.option {
+
+}
+
+.downIcon, .topIcon {
+    transition: none;
+}
+
+.topIcon {
+    transform: rotateX(180deg);
+}
