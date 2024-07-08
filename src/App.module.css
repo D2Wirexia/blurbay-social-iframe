@@ -1,5 +1,6 @@
 .wrapper {
     background: var(--color-white);
+    max-width: 729px;
     border-radius: 24px;
     padding: 32px;
     display: flex;
@@ -18,4 +19,28 @@
 
 .mainContainer {
     display: flex;
+}
+
+.collapse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 8px;
+    padding: 0 24px;
+}
+
+.collapse div {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 14px;
+    color: #BABABA;
+}
+
+.collapse .arrowIcon {
+    transform: rotateX(180deg);
+}
+
+.collapse .arrowIcon path {
+    stroke: #BABABA;
 }

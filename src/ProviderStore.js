@@ -9,7 +9,10 @@ const ProviderStore = ({children}) => {
     const [social, changeSocial] = useState(SOCIAL.Facebook)
     const [contentViews, changeContentViews] = useState('1000')
     const [engagementRate, changeEngagementRate] = useState(ENGAGEMENT_RATE.Average)
+    const [showAdvancedForm, setShowAdvancedForm] = useState(false)
     const [contentCategory, changeContentCategory] = useState(CONTENT_CATEGORY.MakingMoneyOnline)
+    const [accountLink, changeAccountLink] = useState('')
+    const [email, changeEmail] = useState('')
 
     return (
         <StoreContext.Provider value={{
@@ -19,8 +22,14 @@ const ProviderStore = ({children}) => {
             changeContentViews,
             engagementRate,
             changeEngagementRate,
+            showAdvancedForm,
+            setShowAdvancedForm,
             contentCategory,
             changeContentCategory,
+            accountLink,
+            changeAccountLink,
+            email,
+            changeEmail,
         }}>
             {children}
         </StoreContext.Provider>

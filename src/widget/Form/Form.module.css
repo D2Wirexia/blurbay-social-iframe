@@ -4,9 +4,56 @@
     width: 100%;
     height: fit-content;
     padding: 0 32px 0 16px;
+    gap: 24px;
 }
 
 .row {
     display: flex;
     gap: 24px;
+}
+
+.earningContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 16px
+}
+
+.price {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    height: 38px;
+    align-items: end;
+}
+
+.price h4 {
+    font-size: 32px;
+    font-weight: 600;
+    background: -webkit-linear-gradient(var(--color-pastel-red), var(--color-purple-pizzazz));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.price span {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 32px;
+    color: var(--color-dark-purple-60);
+}
+
+.btn {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: start;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.btn div {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    color: var(--color-pastel-red);
 }
