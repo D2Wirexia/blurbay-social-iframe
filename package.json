@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "hex-to-rgba": "^2.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-dropdown-select": "^4.11.2",

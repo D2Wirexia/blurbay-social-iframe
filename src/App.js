@@ -1,9 +1,14 @@
-import './index.css';
+import styles from './App.module.css';
+import {NavBar, Form} from "./widget";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h1>Cloze loste</h1>
+    <div className={styles.wrapper}>
+      <h3 className={styles.title}>Social media earnings calculator</h3>
+        <div className={styles.mainContainer}>
+            <NavBar />
+            <Form />
+        </div>
     </div>
   );
 }

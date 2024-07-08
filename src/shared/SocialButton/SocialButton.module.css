@@ -1,0 +1,75 @@
+.container {
+    width: 119px;
+    padding: 13px 16px;
+    border-radius: 99px;
+    background: transparent;
+    text-align: start;
+    color: rgba(60, 27, 60, 0.65);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 16px;
+}
+
+.container:disabled, .sparkContainer:disabled {
+    color: var(--color-misty-rose);
+    background: var(--color-dark-purple);
+}
+
+.sparkContainer {
+    position: relative;
+    width: 119px;
+    padding: 13px 16px;
+    border-radius: 99px;
+    background: radial-gradient(86.62% 228.34% at 37.91% 0%, rgba(255, 109, 100, 0.05) 25%, rgba(255, 100, 229, 0.05) 100%);
+    text-align: start;
+    border: 2px solid var(--color-elder-pink);
+}
+
+.sparkContainer:disabled {
+    border: 2px solid transparent;
+}
+
+.gradientLabel {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 16px;
+}
+
+.sparkContainer:not(:disabled) .gradientLabel {
+    background: -webkit-linear-gradient(var(--color-pastel-red), var(--color-purple-pizzazz));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sparkContainer:disabled .gradientLabel {
+    color: var(--color-misty-rose);
+}
+
+.sparkIcon1 {
+    position: absolute;
+    top: -1px;
+    left: 3px;
+    width: 10px;
+    height: 10px;
+}
+
+.sparkIcon2 {
+    position: absolute;
+    top: -8px;
+    right: 25px;
+    width: 16px;
+    height: 16px;
+}
+.sparkIcon3 {
+    position: absolute;
+    bottom: -2px;
+    right: 6px;
+    width: 11px;
+    height: 11px;
+}
+
+.sparkContainer:disabled .sparkIcon1,
+.sparkContainer:disabled .sparkIcon2,
+.sparkContainer:disabled .sparkIcon3 {
+    opacity: 0;
+}
