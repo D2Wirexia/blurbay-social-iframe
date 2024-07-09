@@ -4,16 +4,20 @@ import * as SOCIAL from '../../constant/socials';
 import {StoreContext} from "../../ProviderStore";
 import { ReactComponent as SparkIcon } from "../../assets/icon/spark.svg";
 
-const SocialButton = ({type}) => {
+const SocialButton = ({type, onClick}) => {
     const { social, changeSocial } = useContext(StoreContext)
 
     const handleClick = useCallback(() => {
-        changeSocial(type)
-    }, [type, changeSocial])
+        if (!!onClick) {
+            onClick()
+        } else {
+            changeSocial(type)
+        }
+    }, [type, changeSocial, onClick])
 
     if (type === SOCIAL.Blurbay) {
         return (
-            <button className={styles.sparkContainer}
+            <button className={`${styles.sparkContainer} ${!!onClick && styles.expanded}`}
                     onClick={handleClick}
                     disabled={social === type}>
                 <div className={styles.gradientLabel}>{type}</div>
@@ -24,7 +28,7 @@ const SocialButton = ({type}) => {
         )
     }
     return (
-        <button className={styles.container}
+        <button className={`${styles.container} ${!!onClick && styles.expanded}`}
                 onClick={handleClick}
                 disabled={social === type}>
             {type}

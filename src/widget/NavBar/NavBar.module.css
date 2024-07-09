@@ -6,3 +6,9 @@
     border-right: 1px solid var(--color-light-gray);
     padding-right: 32px;
 }
+
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+}

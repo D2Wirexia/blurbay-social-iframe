@@ -48,6 +48,7 @@ h1 {
   box-shadow: none !important;
   border: none !important;
   top: -1px !important;
+  max-height: 304px !important;
 }
 
 @font-face {

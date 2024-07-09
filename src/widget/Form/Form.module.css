@@ -13,11 +13,16 @@
     gap: 24px;
 }
 
+.socialContainer {
+    display: none;
+}
+
 .earningContainer {
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 16px
+    gap: 16px;
+    white-space: nowrap;
 }
 
 .price {
@@ -57,4 +62,20 @@
     font-weight: 600;
     line-height: 16px;
     color: var(--color-pastel-red);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .socialContainer {
+        display: block;
+    }
 }

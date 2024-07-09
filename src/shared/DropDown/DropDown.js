@@ -2,14 +2,17 @@ import React, {useCallback, useMemo} from "react";
 import styles from './DropDown.module.css';
 import {Label} from "../Label";
 import Select from "react-dropdown-select";
-import { ReactComponent as DownArrowIcon } from "../../assets/icon/down-arrow.svg";
+import {ReactComponent as DownArrowIcon} from "../../assets/icon/down-arrow.svg";
 import * as ENGAGEMENT_RATE from '../../constant/engagement-rate'
+import SocialButton from "../SocialButton/SocialButton";
 
-const DropDown = ({ label, onChange, value, options }) => {
+const DropDown = ({label, onChange, value, options}) => {
 
-    const handleChange = (values) => {
-        onChange(values.map((v) => v.value))
-    }
+    const handleChange = useCallback((values) => {
+        if (values.length && typeof values[0].value === 'string') {
+            onChange(values[0].value)
+        }
+    }, [])
 
     const transformedOptions = useMemo(() => {
         return options.map(opt => ({
@@ -29,17 +32,26 @@ const DropDown = ({ label, onChange, value, options }) => {
         return <></>
     }, [])
 
-    const customDropdownHandleRenderer = useCallback(({state}) => {
-        return state.dropdown ? <DownArrowIcon className={styles.topIcon} /> : <DownArrowIcon className={styles.downIcon} />
+    const customDropdownHandleRenderer = useCallback(() => {
+        return <DownArrowIcon className={styles.arrowIcon}/>
     }, [])
 
-    const customDropdownRenderer = useCallback(({ props, methods }) => {
+    const customDropdownRenderer = useCallback(({props, methods}) => {
         return <div className={styles.list}>
-            {props.options.map(opt => (
-                <div key={opt.value} className={styles.option} onClick={() => methods.addItem(opt)}>{opt.label}</div>
-            ))}
+            {props.options.map(opt => {
+                if (label === 'Platform') {
+                    return <SocialButton key={opt.value}
+                                         type={opt.value}
+                                         onClick={() => methods.addItem(opt)}/>
+                }
+                return (
+                    <div key={opt.value}
+                         className={styles.option}
+                         onClick={() => methods.addItem(opt)}>{opt.label}</div>
+                )
+            })}
         </div>
-    }, [])
+    }, [value])
 
     return (
         <div className={styles.container}>

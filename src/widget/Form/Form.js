@@ -4,12 +4,15 @@ import Input from "../../shared/Input/Input";
 import {StoreContext} from "../../ProviderStore";
 import DropDown from "../../shared/DropDown/DropDown";
 import * as ENGAGEMENT_RATE from "../../constant/engagement-rate";
+import * as SOCIALS from "../../constant/socials";
 import {Label} from "../../shared";
 import {ReactComponent as ArrowIcon} from "../../assets/icon/arrow.svg";
 import {AdvancedForm} from "../AdvancedForm";
 
 const Form = () => {
     const {
+        social,
+        changeSocial,
         contentViews,
         changeContentViews,
         engagementRate,
@@ -21,14 +24,14 @@ const Form = () => {
     return (
         <div className={styles.container}>
             <div className={styles.row}>
+                <div className={styles.socialContainer}>
+                    <DropDown label='Platform' value={social} onChange={changeSocial}
+                              options={SOCIALS.Socials}/>
+                </div>
                 <Input label='Content views' type='number' min={1} step={1} value={contentViews}
                        onChange={changeContentViews}/>
                 <DropDown label='Engagement rate' value={engagementRate} onChange={changeEngagementRate}
                           options={[ENGAGEMENT_RATE.Low, ENGAGEMENT_RATE.Average, ENGAGEMENT_RATE.High]}/>
-                {/*<DropDown label='Engagement rate' onChange={() => {}} action={<button onClick={(e) => {*/}
-                {/*    e.stopPropagation()*/}
-                {/*}*/}
-                {/*}>Send</button>} />*/}
             </div>
             <div className={styles.earningContainer}>
                 <Label>You should be earning:</Label>

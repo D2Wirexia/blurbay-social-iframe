@@ -1,3 +1,9 @@
+.advancedForm {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
 .line {
     height: 1px;
     width: 100%;
@@ -6,11 +12,23 @@
 
 .buttonSend {
     background: radial-gradient(86.62% 228.34% at 37.91% 0%, #FF6D64 25%, #FF64E5 100%);
-    padding: 14px 16px 14px 16px;
+    padding: 0 16px;
+    height: 38px;
     border-radius: 44px;
     font-size: 14px;
     font-weight: 600;
     line-height: 14px;
     color: var(--color-white);
+}
 
+.mailContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+@media (max-width: 768px) {
+    .line {
+        display: none;
+    }
 }

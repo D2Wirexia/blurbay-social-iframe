@@ -32,6 +32,9 @@
     outline: none;
     height: fit-content;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
 .content {
@@ -48,6 +51,7 @@
 .option {
     position: relative;
     height: 42px;
+    min-height: 42px;
     padding: 0 16px;
     font-size: 18px;
     font-weight: 500;
@@ -61,13 +65,9 @@
     color: var(--color-dark-purple);
 }
 
-.downIcon, .topIcon {
+.arrowIcon {
     position: relative;
     transition: none;
     height: 6px;
     top: 2px;
-}
-
-.topIcon {
-    transform: rotateX(180deg);
 }

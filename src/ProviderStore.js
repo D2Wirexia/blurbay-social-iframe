@@ -13,6 +13,7 @@ const ProviderStore = ({children}) => {
     const [contentCategory, changeContentCategory] = useState(CONTENT_CATEGORY.MakingMoneyOnline)
     const [accountLink, changeAccountLink] = useState('')
     const [email, changeEmail] = useState('')
+    const [isSendEdc, changeIsSendEdc] = useState(true)
 
     return (
         <StoreContext.Provider value={{
@@ -30,6 +31,8 @@ const ProviderStore = ({children}) => {
             changeAccountLink,
             email,
             changeEmail,
+            isSendEdc,
+            changeIsSendEdc,
         }}>
             {children}
         </StoreContext.Provider>

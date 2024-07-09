@@ -73,3 +73,15 @@
 .sparkContainer:disabled .sparkIcon3 {
     opacity: 0;
 }
+
+.expanded {
+    width: 100%;
+}
+
+.expanded .sparkIcon2 {
+    right: 60%;
+}
+
+.expanded .sparkIcon3 {
+    right: 22.25%;
+}

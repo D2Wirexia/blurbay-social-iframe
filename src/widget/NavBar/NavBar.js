@@ -8,7 +8,7 @@ const NavBar = () => {
     return (
         <div className={styles.nav}>
             {Socials.map(social => (
-                <SocialButton key={social} type={social} />
+                <SocialButton key={social} type={social} onClick={null} />
             ))}
         </div>
     )
