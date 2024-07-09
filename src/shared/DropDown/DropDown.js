@@ -25,16 +25,20 @@ const DropDown = ({ label, onChange, value, options }) => {
         return <div className={styles.content}>{value}</div>
     }, [value, label])
 
-    const customItemRender = useCallback(({item, methods}) => {
-        return <div className={styles.option} onClick={() => methods.addItem(item)}>{item.label}</div>
-    }, [])
-
     const customClearRenderer = useCallback(() => {
         return <></>
     }, [])
 
     const customDropdownHandleRenderer = useCallback(({state}) => {
         return state.dropdown ? <DownArrowIcon className={styles.topIcon} /> : <DownArrowIcon className={styles.downIcon} />
+    }, [])
+
+    const customDropdownRenderer = useCallback(({ props, methods }) => {
+        return <div className={styles.list}>
+            {props.options.map(opt => (
+                <div key={opt.value} className={styles.option} onClick={() => methods.addItem(opt)}>{opt.label}</div>
+            ))}
+        </div>
     }, [])
 
     return (
@@ -46,9 +50,9 @@ const DropDown = ({ label, onChange, value, options }) => {
                 options={transformedOptions}
                 onChange={handleChange}
                 contentRenderer={customContentRenderer}
-                itemRenderer={customItemRender}
                 clearRenderer={customClearRenderer}
                 dropdownHandleRenderer={customDropdownHandleRenderer}
+                dropdownRenderer={customDropdownRenderer}
                 clearable
             />
         </div>

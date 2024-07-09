@@ -43,6 +43,13 @@ h1 {
   -webkit-text-fill-color: transparent;
 }
 
+.react-dropdown-select-dropdown {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  top: -1px !important;
+}
+
 @font-face {
   font-family: 'Maison Neue';
   src: url(./assets/font/maison-neue/MaisonNeueWEB-Book.woff2) format('woff2'),

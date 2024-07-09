@@ -5,22 +5,33 @@
 }
 
 .blurbaySelect {
-    position: relative;
-    border: 1px solid var(--color-dark-purple-30);
-    border-radius: 99px;
-    padding: 0 20px;
+    position: relative !important;
+    border: 1px solid var(--color-dark-purple-30) !important;
+    border-radius: 99px !important;
+    padding: 0 20px !important;
     outline: none;
     box-shadow: none;
-    height: 59px;
-    width: 184px;
+    height: 59px !important;
+    width: 100% !important;
     display: flex;
-    gap: 4px;
+    gap: 4px !important;
 }
 
+
 .blurbaySelect:focus, .blurbaySelect:hover {
-    border: 1px solid var(--color-dark-purple-30);
-    box-shadow: none;
+    border: 1px solid var(--color-dark-purple-30) !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.list {
+    background: var(--color-white) !important;
+    border-radius: 24px !important;
+    padding: 8px !important;
+    border: 1px solid var(--color-dark-purple-30) !important;
     outline: none;
+    height: fit-content;
+    overflow: auto;
 }
 
 .content {
@@ -35,9 +46,19 @@
 }
 
 .option {
-    padding: 10px 20px;
-    font-size: 16px;
+    position: relative;
+    height: 42px;
+    padding: 0 16px;
+    font-size: 18px;
+    font-weight: 500;
     line-height: 16px;
+    color: rgba(60, 27, 60, 0.65);
+    display: flex;
+    align-items: center;
+}
+
+.option:hover, option:focus {
+    color: var(--color-dark-purple);
 }
 
 .downIcon, .topIcon {

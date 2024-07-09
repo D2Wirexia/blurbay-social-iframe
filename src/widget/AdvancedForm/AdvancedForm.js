@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useCallback, useContext} from "react";
 import styles from './AdvancedForm.module.css'
 import {StoreContext} from "../../ProviderStore";
 import * as CONTENT_CATEGORY from "../../constant/content-category";
@@ -16,6 +16,10 @@ const AdvancedForm = () => {
         changeEmail,
     } = useContext(StoreContext)
 
+    const handleSend = useCallback((e) => {
+        e.stopPropagation()
+    }, [])
+    
     return (
         <>
             <div className={styles.line} />
@@ -24,7 +28,7 @@ const AdvancedForm = () => {
             <Input label='Link to your account' placeholder={`https://${SOCIALS.SocialLink[social]}/account`} value={accountLink} onChange={changeAccountLink} />
             <Input label='Enter your email to get a detailed report' placeholder='your@email.com' type='email' value={email}
                    onChange={changeEmail}
-                   action={<button onClick={() => {}} className={styles.buttonSend}>Send</button>} />
+                   action={<button onClick={handleSend} className={styles.buttonSend}>Send</button>} />
         </>
     )
 }
