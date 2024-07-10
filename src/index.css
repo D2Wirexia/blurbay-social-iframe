@@ -36,13 +36,6 @@ button {
   cursor: pointer;
 }
 
-h1 {
-  font-size: 72px;
-  background: -webkit-linear-gradient(var(--color-pastel-red), var(--color-purple-pizzazz));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .react-dropdown-select-dropdown {
   background: transparent !important;
   box-shadow: none !important;

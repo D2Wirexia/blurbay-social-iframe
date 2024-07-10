@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useMemo} from 'react'
 import styles from './Form.module.css'
 import Input from "../../shared/Input/Input";
 import {StoreContext} from "../../ProviderStore";
@@ -8,6 +8,7 @@ import * as SOCIALS from "../../constant/socials";
 import {Label} from "../../shared";
 import {ReactComponent as ArrowIcon} from "../../assets/icon/arrow.svg";
 import {AdvancedForm} from "../AdvancedForm";
+import {buildEarning, Earning} from "../../constant/earning";
 
 const Form = () => {
     const {
@@ -20,6 +21,10 @@ const Form = () => {
         showAdvancedForm,
         setShowAdvancedForm,
     } = useContext(StoreContext)
+
+    const earning = useMemo(() => {
+        return buildEarning(Earning[engagementRate][social], contentViews)
+    }, [social, contentViews, engagementRate])
 
     return (
         <div className={styles.container}>
@@ -36,7 +41,7 @@ const Form = () => {
             <div className={styles.earningContainer}>
                 <Label>You should be earning:</Label>
                 <div className={styles.price}>
-                    <h4>$2,500-$3,000</h4>
+                    <h4>{earning}</h4>
                     <span>/ month</span>
                 </div>
             </div>
