@@ -4,7 +4,9 @@ class Api {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Accept': 'application/json',
             },
+            withCredentials: true,
             body: JSON.stringify({
                 token: '289de5d3dc64a3c0240740cc48e457e3',
                 ...data,
