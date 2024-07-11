@@ -12,7 +12,7 @@ const DropDown = ({label, onChange, value, options}) => {
         if (values.length && typeof values[0].value === 'string') {
             onChange(values[0].value)
         }
-    }, [])
+    }, [onChange])
 
     const transformedOptions = useMemo(() => {
         return options.map(opt => ({
@@ -51,7 +51,7 @@ const DropDown = ({label, onChange, value, options}) => {
                 )
             })}
         </div>
-    }, [value])
+    }, [label])
 
     return (
         <div className={styles.container}>
