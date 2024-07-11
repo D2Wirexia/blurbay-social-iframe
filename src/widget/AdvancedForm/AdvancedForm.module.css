@@ -21,6 +21,10 @@
     color: var(--color-white);
 }
 
+.buttonSend:disabled {
+    opacity: .6;
+}
+
 .mailContainer {
     display: flex;
     flex-direction: column;

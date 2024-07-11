@@ -17,11 +17,14 @@ const AdvancedForm = () => {
         changeEmail,
         isSendEdc,
         changeIsSendEdc,
+        handleSubmit,
+        isSending,
     } = useContext(StoreContext)
 
     const handleSend = useCallback((e) => {
         e.stopPropagation()
-    }, [])
+        handleSubmit()
+    }, [handleSubmit])
 
     return (
         <div className={styles.advancedForm}>
@@ -34,7 +37,7 @@ const AdvancedForm = () => {
                 <Input label='Enter your email to get a detailed report' placeholder='your@email.com' type='email'
                        value={email}
                        onChange={changeEmail}
-                       action={<button onClick={handleSend} className={styles.buttonSend}>Send</button>}/>
+                       action={<button onClick={handleSend} className={styles.buttonSend} disabled={isSending}>Send</button>}/>
                 <Checkbox label='Send me an educational newsletter about monetizing my content' checked={isSendEdc}
                           onChange={(e) => changeIsSendEdc(e.target.checked)}/>
 
