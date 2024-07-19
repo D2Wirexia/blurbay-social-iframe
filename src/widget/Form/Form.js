@@ -33,7 +33,7 @@ const Form = () => {
                     <DropDown label='Platform' value={social} onChange={changeSocial}
                               options={SOCIALS.Socials}/>
                 </div>
-                <Input label='Content views' type='number' min={1} step={1} value={contentViews}
+                <Input label='Content views' type='number' min={1} step={1} value={contentViews} maxLength={16}
                        onChange={changeContentViews}/>
                 <DropDown label='Engagement rate' value={engagementRate} onChange={changeEngagementRate}
                           options={[ENGAGEMENT_RATE.Low, ENGAGEMENT_RATE.Average, ENGAGEMENT_RATE.High]}/>

@@ -83,9 +83,18 @@ export const Earning = {
 }
 
 export const buildEarning = (val, c) => {
-    return formatNumber(val.min * c) + '-' + formatNumber(val.max * c)
+    return formatNumber(val.min / 100000 * c) + '-' + formatNumber(val.max / 100000 * c)
 }
 
-const formatNumber = (number) => {
-    return '$' + number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+const formatNumber = (value) => {
+    if (value >= 1_000_000_000) {
+        return '$' + (value / 1_000_000_000).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + 'MM+';
+    }
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+    })
+    return formatter.format(value)
 }

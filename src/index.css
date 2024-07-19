@@ -20,10 +20,11 @@
 }
 
 body {
-  background: transparent;
+  background: var(--color-misty-rose);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 }
 
 input, button {
