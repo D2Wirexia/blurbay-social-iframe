@@ -88,7 +88,7 @@ export const buildEarning = (val, c) => {
 
 const formatNumber = (value) => {
     if (value >= 1_000_000_000) {
-        return '$' + (value / 1_000_000_000).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + 'MM+';
+        return '$' + (value / 1_000_000_000).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + 'b+';
     }
     const formatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
