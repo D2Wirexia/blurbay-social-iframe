@@ -19,6 +19,7 @@ const AdvancedForm = () => {
         changeIsSendEdc,
         handleSubmit,
         isSending,
+        errors,
     } = useContext(StoreContext)
 
     const handleSend = useCallback((e) => {
@@ -32,15 +33,17 @@ const AdvancedForm = () => {
             <DropDown label='Content category' value={contentCategory} onChange={changeContentCategory}
                       options={CONTENT_CATEGORY.ContentCategory}/>
             <Input label='Link to your account' placeholder={`https://${SOCIALS.SocialLink[social]}/account`}
-                   value={accountLink} onChange={changeAccountLink}/>
+                   value={accountLink}
+                   error={errors.accountLink}
+                   onChange={changeAccountLink}/>
             <div className={styles.mailContainer}>
                 <Input label='Enter your email to get a detailed report' placeholder='your@email.com' type='email'
                        value={email}
+                       error={errors.email}
                        onChange={changeEmail}
                        action={<button onClick={handleSend} className={styles.buttonSend} disabled={isSending}>Send</button>}/>
                 <Checkbox label='Send me an educational newsletter about monetizing my content' checked={isSendEdc}
                           onChange={(e) => changeIsSendEdc(e.target.checked)}/>
-
             </div>
         </div>
     )

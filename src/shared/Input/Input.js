@@ -2,7 +2,7 @@ import React, {useCallback, useRef} from "react";
 import styles from './Input.module.css';
 import {Label} from "../Label";
 
-const Input = ({ label, action, onChange, type, ...props }) => {
+const Input = ({ label, action, onChange, type, error, ...props }) => {
     const inputRef = useRef(null)
 
     const handleChange = useCallback((e) => {
@@ -26,6 +26,9 @@ const Input = ({ label, action, onChange, type, ...props }) => {
                 <input ref={inputRef} className={styles.input} onChange={handleChange} {...props} />
                 {!!action && (
                     <div className={styles.actionContainer}>{action}</div>
+                )}
+                {error && (
+                    <div className={styles.errorContainer}>{error}</div>
                 )}
             </div>
         </div>

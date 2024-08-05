@@ -1,4 +1,4 @@
-import React, {createContext, useCallback, useState} from "react";
+import React, {createContext, useCallback, useEffect, useState} from "react";
 import * as SOCIAL from './constant/socials'
 import * as CONTENT_CATEGORY from './constant/content-category'
 import * as ENGAGEMENT_RATE from './constant/engagement-rate'
@@ -16,6 +16,17 @@ const ProviderStore = ({children}) => {
     const [email, changeEmail] = useState('')
     const [isSendEdc, changeIsSendEdc] = useState(true)
     const [isSending, setIsSending] = useState(false)
+    const [errors, setErrors] = useState({})
+
+    useEffect(() => {
+        const { accountLink, ...rest } = errors
+        setErrors(rest)
+    }, [accountLink])
+
+    useEffect(() => {
+        const { email, ...rest } = errors
+        setErrors(rest)
+    }, [email])
 
     const handleSubmit = useCallback(async () => {
         setIsSending(true)
@@ -29,9 +40,21 @@ const ProviderStore = ({children}) => {
                 email,
                 isSendEdc,
             })
-            console.log(res)
+            if (res.status === 204) {
+                changeAccountLink('')
+                changeEmail('')
+                alert('Your data has been sent successfully!')
+                return
+            }
+            if (res.status === 422) {
+                const body = await res.json()
+                setErrors(body.errors)
+            } else {
+                throw new Error()
+            }
         } catch (e) {
-            console.error(e)
+            alert('Something went wrong\n' +
+                'Sorry but we couldn\'t receive a correct response from the server')
         } finally {
             setIsSending(false)
         }
@@ -57,6 +80,7 @@ const ProviderStore = ({children}) => {
             changeIsSendEdc,
             handleSubmit,
             isSending,
+            errors,
         }}>
             {children}
         </StoreContext.Provider>
