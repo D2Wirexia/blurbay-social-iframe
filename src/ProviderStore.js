@@ -41,8 +41,7 @@ const ProviderStore = ({children}) => {
                 isSendEdc,
             })
             if (res.status === 204) {
-                changeAccountLink('')
-                changeEmail('')
+                resetForm()
                 alert('Your data has been sent successfully!')
                 return
             }
@@ -58,7 +57,17 @@ const ProviderStore = ({children}) => {
         } finally {
             setIsSending(false)
         }
-    }, [social, contentViews, engagementRate, contentCategory, accountLink, email, isSendEdc])
+    }, [social, contentViews, engagementRate, contentCategory, accountLink, email, isSendEdc, resetForm])
+
+    const resetForm = useCallback(() => {
+        changeSocial(SOCIAL.Facebook)
+        changeContentViews('1000')
+        changeEngagementRate(ENGAGEMENT_RATE.Average)
+        changeContentCategory(CONTENT_CATEGORY.MakingMoneyOnline)
+        changeAccountLink('')
+        changeEmail('')
+        changeIsSendEdc(true)
+    }, [])
 
     return (
         <StoreContext.Provider value={{
