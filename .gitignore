@@ -4,6 +4,7 @@
 
 /coverage
 
+/.idea
 /build
 
 .DS_Store
