@@ -28,6 +28,16 @@ const ProviderStore = ({children}) => {
         setErrors(rest)
     }, [email])
 
+    const resetForm = useCallback(() => {
+        changeSocial(SOCIAL.Facebook)
+        changeContentViews('1000')
+        changeEngagementRate(ENGAGEMENT_RATE.Average)
+        changeContentCategory(CONTENT_CATEGORY.MakingMoneyOnline)
+        changeAccountLink('')
+        changeEmail('')
+        changeIsSendEdc(true)
+    }, [])
+
     const handleSubmit = useCallback(async () => {
         setIsSending(true)
         try {
@@ -58,16 +68,6 @@ const ProviderStore = ({children}) => {
             setIsSending(false)
         }
     }, [social, contentViews, engagementRate, contentCategory, accountLink, email, isSendEdc, resetForm])
-
-    const resetForm = useCallback(() => {
-        changeSocial(SOCIAL.Facebook)
-        changeContentViews('1000')
-        changeEngagementRate(ENGAGEMENT_RATE.Average)
-        changeContentCategory(CONTENT_CATEGORY.MakingMoneyOnline)
-        changeAccountLink('')
-        changeEmail('')
-        changeIsSendEdc(true)
-    }, [])
 
     return (
         <StoreContext.Provider value={{
